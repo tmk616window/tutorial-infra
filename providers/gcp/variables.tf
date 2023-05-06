@@ -9,3 +9,9 @@ variable "REGION" {
 
   default = "asia-northeast1"
 }
+
+variable "PROJECT_NUM" {
+  type = number
+
+  default = 823642599271
+}
