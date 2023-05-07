@@ -15,3 +15,9 @@ variable "PROJECT_NUM" {
 
   default = 823642599271
 }
+
+variable "ENV" {
+  type = string
+
+  default = "dev"
+}
