@@ -1,5 +1,5 @@
 resource "google_iam_workload_identity_pool" "tnamba_tutorial_ga" {
-  workload_identity_pool_id = "tnamba-tutorial-ga"
+  workload_identity_pool_id = "tnamba-tutorial-pool"
 }
 
 resource "google_iam_workload_identity_pool_provider" "tnamba_tutorial_ga_pool_provider" {

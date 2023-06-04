@@ -14,8 +14,27 @@ resource "google_project_iam_member" "ga_storage_object_viewer" {
   member  = "serviceAccount:${google_service_account.tnamba_tutorial_ga_service_account.email}"
 }
 
+resource "google_project_iam_member" "tnamba_tutorial_ga_iam_cloudrun_deploy" {
+  project = var.project_id
+  role    = "roles/run.admin"
+  member  = "serviceAccount:${google_service_account.tnamba_tutorial_ga_service_account.email}"
+}
+
+resource "google_project_iam_member" "tnamba_tutorial_ga_iam_sa" {
+  project = var.project_id
+  role    = "roles/iam.serviceAccountUser"
+  member  = "serviceAccount:${google_service_account.tnamba_tutorial_ga_service_account.email}"
+}
+
 resource "google_service_account_iam_member" "tnamba_tutorial_ga_iam_workload_identity_user" {
   service_account_id = google_service_account.tnamba_tutorial_ga_service_account.id
   role               = "roles/iam.workloadIdentityUser"
   member             = "principalSet://iam.googleapis.com/projects/${var.project_num}/locations/global/workloadIdentityPools/${google_iam_workload_identity_pool.tnamba_tutorial_ga.workload_identity_pool_id}/attribute.repository/tmk616window/tutorial2-backend-go-hasura"
 }
+
+resource "google_project_iam_member" "tnamba_tutorial_ga_admin_artifact_registory" {
+  project = var.project_id
+  role    = "roles/artifactregistry.writer"  
+  member  = "serviceAccount:${google_service_account.tnamba_tutorial_ga_service_account.email}"
+}
+

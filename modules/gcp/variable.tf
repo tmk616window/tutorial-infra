@@ -13,3 +13,7 @@ variable "project_num" {
 variable "cors_chat_image_bucket" {
   type = list(string)
 }
+
+variable "env" {
+  type = string
+}

@@ -9,6 +9,7 @@ module "tutorial" {
     region                        = var.REGION
     project_id                    = var.PROJECT_ID
     project_num                    = var.PROJECT_NUM
+    env                    = var.ENV
 
     cors_chat_image_bucket = [
       "http://localhost:3000",
