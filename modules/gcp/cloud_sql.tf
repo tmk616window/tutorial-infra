@@ -14,11 +14,6 @@ resource "google_sql_database_instance" "tnamba_tutorial_postgres" {
   deletion_protection = "false"
 }
 
-# resource "google_sql_database_instance" "tnamba_tutorial_sql" {
-# }
-
-
-
 resource "google_sql_database" "tnamba_tutorial_database" {
   name     = "tnamba-tutorial"
   instance = google_sql_database_instance.tnamba_tutorial_postgres.name
@@ -47,3 +42,5 @@ resource "google_project_iam_binding" "client" {
   "serviceAccount:${google_service_account.tnamba_tutorial_cloudrun_service_account.email}",
  ]
 }
+
+
